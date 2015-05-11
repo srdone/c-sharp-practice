@@ -8,6 +8,12 @@ class Person
 		this.name = name;
 	}
 	
+	public string Name
+	{
+		get { return name; }
+		set { name = value; }
+	}
+	
 	public void Say (string message)
 	{
 		Console.WriteLine("{0} says {1}", name, message);
@@ -35,5 +41,8 @@ class SimpleDelegateUse
 		jonsVoice("Hello, son.");
 		tomsVoice.Invoke("Hello, daddy.");
 		background("An Airplane flies past.");
+		// Delegates refer to the instance in the state when it is invoked, not the state when created
+		jon.Name = "Bill";
+		jonsVoice("What is my name?");
 	}
 }
