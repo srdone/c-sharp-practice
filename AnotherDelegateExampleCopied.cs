@@ -27,3 +27,11 @@ handler = delegate
 	Console.WriteLine("Handled Anonymously Again");
 };
 handler(null, EventArgs.Empty);
+
+//uses delegate contravariance
+MouseEventHandler mouseHandler = HandleDemoEvent;
+mouseHandler(null, new MouseEventArgs(MouseButtons.None, 0, 0, 0, 0));
+
+//Lambda expressions - like improved anonymous methods
+Func<int, int, string> func = (x, y) => (x * y).ToString();
+Console.WriteLine(func(3, 5));
