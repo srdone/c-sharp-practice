@@ -35,3 +35,23 @@ mouseHandler(null, new MouseEventArgs(MouseButtons.None, 0, 0, 0, 0));
 //Lambda expressions - like improved anonymous methods
 Func<int, int, string> func = (x, y) => (x * y).ToString();
 Console.WriteLine(func(3, 5));
+
+//C# 3 - Anonymous types and implicit typing
+var jon = new {Name = "Jon", Age = 31};
+var tom = new { Name = "Tom", Age = 4 };
+Console.WriteLine("{0} is {1}", jon.Name, jon.Age);
+
+//Extension methods
+string x = "Hello world".Reverse();
+
+//Creating an Extension method
+namespace ExtensionMethods
+{
+	public static class MyExtensions
+	{
+		public static int WordCount(this String str)
+		{
+			return str.Split(new char[] {' ', '.', '?' }, StringSplitOptions.RemoveEmptyEntries).Length;
+		}
+	}
+}
