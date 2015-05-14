@@ -49,9 +49,21 @@ namespace ExtensionMethods
 {
 	public static class MyExtensions
 	{
-		public static int WordCount(this String str)
+		public static int WordCount(this String str) // syntax is 'this' then the type then the parameter name. Then you can add additional parameters afterward.
 		{
 			return str.Split(new char[] {' ', '.', '?' }, StringSplitOptions.RemoveEmptyEntries).Length;
 		}
 	}
 }
+
+//Extension methods cannot access private variables on the class they are extending
+//Extension methods can extend, but not override
+
+//C# 4 - dynamic typing
+dynamic o = "hello";
+Console.WriteLine(o.Length); //5
+o = new string[] {"Hi", "there"};
+Console.WriteLine(o.Length); //2
+
+//Nullable types
+int? x = null; //declares and sets a nullable variable
