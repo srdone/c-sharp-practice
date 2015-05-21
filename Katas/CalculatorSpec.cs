@@ -11,11 +11,13 @@ namespace Katas
 	public class CalculatorSpec
 	{
 		string emptyString;
+		string seven;
 		
 		[SetUp]
 		public void init()
 		{
 			emptyString = "";
+			seven = "7";
 		}
 		
 		[Test]
@@ -24,6 +26,14 @@ namespace Katas
 			var result = Calculator.Add(emptyString);
 			
 			Assert.AreEqual(0, result);
+		}
+		
+		[Test]
+		public void AddSeven()
+		{
+			var result = Calculator.Add(seven);
+			
+			Assert.AreEqual(7, result);
 		}
 	}
 }
