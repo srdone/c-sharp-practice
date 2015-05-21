@@ -10,7 +10,7 @@ namespace Katas
 			}
 			else
 			{
-				return -1;
+				return int.Parse(value);
 			}
 		}
 	}
