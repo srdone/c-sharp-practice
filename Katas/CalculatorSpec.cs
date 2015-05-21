@@ -50,5 +50,16 @@ namespace Katas
 			
 			Assert.AreEqual(randomInt, result);
 		}
+		
+		[Test]
+		public void AddRandomNegativeInt()
+		{
+			var negativeRandomInt = -randomInt;
+			var negativeRandomIntString = "-" + randomIntString;
+			
+			var result = Calculator.Add(negativeRandomIntString);
+			
+			Assert.AreEqual(negativeRandomInt, result);
+		}
 	}
 }
