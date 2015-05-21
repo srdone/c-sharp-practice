@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!--This file represents the results of running a test suite-->
-<test-results name="GreatestCommonDivisor.exe" total="2" failures="0" not-run="0" date="2015-05-21" time="10:35:47">
+<test-results name="Calculator.exe" total="1" failures="1" not-run="0" date="2015-05-21" time="12:50:57">
   <environment nunit-version="2.4.8.0" clr-version="4.0.30319.17020" os-version="Unix 14.3.0.0" platform="Unix" cwd="/Users/srdone/Development/c-sharp-practice/Katas" machine-name="Stephens-MBP" user="srdone" user-domain="Stephens-MBP" />
   <culture-info current-culture="en-US" current-uiculture="en-US" />
-  <test-suite name="GreatestCommonDivisor.exe" success="True" time="0.018" asserts="0">
+  <test-suite name="Calculator.exe" success="False" time="0.069" asserts="0">
     <results>
-      <test-suite name="Kata" success="True" time="0.015" asserts="0">
+      <test-suite name="Katas" success="False" time="0.065" asserts="0">
         <results>
-          <test-suite name="GreatestCommonDivisorTest" success="True" time="0.009" asserts="0">
+          <test-suite name="CalculatorSpec" success="False" time="0.012" asserts="0">
             <results>
-              <test-case name="Kata.GreatestCommonDivisorTest.BasicTest" executed="True" success="True" time="0.003" asserts="1" />
-              <test-case name="Kata.GreatestCommonDivisorTest.One_Is_Only_GCD" executed="True" success="True" time="0.000" asserts="1" />
+              <test-case name="Katas.CalculatorSpec.AddEmptyString" executed="True" success="False" time="0.009" asserts="1">
+                <failure>
+                  <message><![CDATA[  Expected: 0
+  But was:  -1
+]]></message>
+                  <stack-trace><![CDATA[at Katas.CalculatorSpec.AddEmptyString () [0x00000] in <filename unknown>:0
+at (wrapper managed-to-native) System.Reflection.MonoMethod:InternalInvoke (System.Reflection.MonoMethod,object,object[],System.Exception&)
+at System.Reflection.MonoMethod.Invoke (System.Object obj, BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00054] in /private/tmp/mono20150427-94385-ls9w7r/mono-4.0.1/mcs/class/corlib/System.Reflection/MonoMethod.cs:230
+]]></stack-trace>
+                </failure>
+              </test-case>
             </results>
           </test-suite>
         </results>
