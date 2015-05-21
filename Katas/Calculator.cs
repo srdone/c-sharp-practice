@@ -4,7 +4,14 @@ namespace Katas
 	{
 		public static int Add(string value)
 		{
-			return -1;
+			if (value == "")
+			{
+				return 0;
+			}
+			else
+			{
+				return -1;
+			}
 		}
 	}
 	
