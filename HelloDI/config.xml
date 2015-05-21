@@ -1,0 +1,4 @@
+<appSettings>
+	<add key="messageWriter"
+				value="Ploeh.Samples.HelloDI.CommandLine.ConsoleMessageWriter, HelloDI" />
+</appSettings>

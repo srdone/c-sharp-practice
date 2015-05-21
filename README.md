@@ -1,4 +1,6 @@
 C# Practice
 
-Files in this repository are hand-copied from the book C# in depth, in order to make sure I understand the
-points he is illustrating with the code.
+Files in this repository are hand-copied from various books to help me better understand the code examples.
+
+Files in the following folders are my own code:
+ - Katas
