@@ -18,7 +18,6 @@ namespace Katas
 		string four;
 		string three;
 		string two;
-		string one;
 		string sevenAndSix;
 		string randomIntString;
 		int randomInt;
@@ -34,7 +33,6 @@ namespace Katas
 			four = "4";
 			three = "3";
 			two = "2";
-			one = "1";
 			sevenAndSix = seven + "," + six;
 		}
 		
@@ -108,8 +106,9 @@ namespace Katas
 		public void Add5IntsSeparatedByCommas()
 		{
 			var sevenSixFiveFourThree = concatenateWithCommas(seven, six, five, four, three);
+			calculator.Add(sevenSixFiveFourThree);
 			
-			var result = calculator.Add(sevenSixFiveFourThree).Equals();
+			var result = calculator.Equals();
 			
 			Assert.AreEqual(7 + 6 + 5 + 4 + 3, result);
 		}

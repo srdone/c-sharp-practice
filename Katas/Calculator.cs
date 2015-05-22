@@ -124,7 +124,6 @@ namespace Katas
 			
 			return parsedValues;
 		}
-		
 	}
 	
 	class FakeMain
