@@ -44,17 +44,6 @@ namespace Katas
 			return this;
 		}
 		
-		public int Equals()
-		{
-			return runningResult;
-		}
-		
-		public Calculator Reset()
-		{
-			runningResult = 0;	
-			return this;
-		}
-		
 		public Calculator Subtract(params string[] values)
 		{
 			int[] parsedValues = parse(values);
@@ -75,6 +64,17 @@ namespace Katas
 			}
 			
 			return this;
+		}
+		
+		public Calculator Reset()
+		{
+			runningResult = 0;	
+			return this;
+		}
+		
+		public int Equals()
+		{
+			return runningResult;
 		}
 	}
 	
