@@ -3,16 +3,18 @@ namespace Katas
 	public class Calculator
 	{
 		private int runningResult;
+		private readonly IParser parser;
 		
-		public Calculator()
+		public Calculator(IParser parser)
 		{
 			runningResult = 0;
+			this.parser = parser;
 		}
 		
-		static int addValues(string values)
+		int addValues(string values)
 		{	
 			int result = 0;
-			foreach (int v in StringParser.parseValues(StringParser.splitNumbers(values)))
+			foreach (int v in parser.Parse(values))
 			{
 				result += v;
 			}
@@ -20,10 +22,10 @@ namespace Katas
 			return result;
 		}
 		
-		static int subtractValues(string values)
+		int subtractValues(string values)
 		{
 			int result = 0;
-			foreach (int v in StringParser.parseValues(StringParser.splitNumbers(values)))
+			foreach (int v in parser.Parse(values))
 			{
 				result -= v;
 			}
@@ -31,10 +33,10 @@ namespace Katas
 			return result;
 		}
 		
-		static double divideValues(string values)
+		double divideValues(string values)
 		{
 			double result = 1;
-			foreach (int v in StringParser.parseValues(StringParser.splitNumbers(values)))
+			foreach (int v in parser.Parse(values))
 			{
 				result = (result / v);
 			}
@@ -61,8 +63,7 @@ namespace Katas
 		
 		public Calculator Reset()
 		{
-			runningResult = 0;
-			
+			runningResult = 0;	
 			return this;
 		}
 		
@@ -91,17 +92,29 @@ namespace Katas
 		}
 	}
 	
-	public class StringParser
+	public interface IParser
+	{
+		int[] Parse(string values);
+	}
+	
+	public class StringParser : IParser
 	{
 		const string emptyString = "";
 		const int emptyStringValue = 0;
 		
-		public static string[] splitNumbers(string values)
+		public StringParser() {}
+		
+		public int[] Parse(string values)
+		{
+			return parseValues(splitNumbers(values));
+		}
+		
+		string[] splitNumbers(string values)
 		{
 			return values.Split(new char[] {','});
 		}
 		
-		public static int parseSingleValue(string value)
+		int parseSingleValue(string value)
 		{
 			if (value == emptyString)
 			{
@@ -113,7 +126,7 @@ namespace Katas
 			}
 		}
 		
-		public static int[] parseValues(string[] stringValues)
+		int[] parseValues(string[] stringValues)
 		{
 			int[] parsedValues = new int[stringValues.Length];
 			

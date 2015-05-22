@@ -43,7 +43,7 @@ namespace Katas
 			randomInt = random.Next();
 			randomIntString = randomInt.ToString();
 			
-			calculator = new Calculator();
+			calculator = new Calculator(new StringParser());
 		}
 		
 		[Test]
