@@ -1,5 +1,7 @@
 namespace Katas
 {
+	using System;
+	
 	public class Calculator
 	{
 		private int runningResult;
@@ -16,34 +18,16 @@ namespace Katas
 			return parser.Parse(values);
 		}
 		
-		int addValues(string values)
-		{	
-			int result = 0;
-			foreach (int v in parse(values))
-			{
-				result += v;
-			}
-			
-			return result;
-		}
-		
-		int subtractValues(string values)
+		int[] parse(string[] values)
 		{
-			int result = 0;
-			foreach (int v in parse(values))
+			int[] result = new int[0];
+			foreach (string s in values)
 			{
-				result -= v;
-			}
-			
-			return result;
-		}
-		
-		double divideValues(string values)
-		{
-			double result = 1;
-			foreach (int v in parse(values))
-			{
-				result = (result / v);
+				int[] parsedValue = parse(s);
+				int[] intermediateResult = new int[parsedValue.Length + result.Length];
+				result.CopyTo(intermediateResult, 0);
+				parsedValue.CopyTo(intermediateResult, result.Length);
+				result = intermediateResult;
 			}
 			
 			return result;
@@ -52,9 +36,10 @@ namespace Katas
 		public Calculator Add(params string[] values)
 		{
 			int result = 0;
-			foreach (string v in values)
+			int[] parsedValues = parse(values);
+			foreach (int v in parsedValues)
 			{
-				result += addValues(v);
+				result += v;
 			}
 			runningResult += result;
 			
@@ -75,9 +60,10 @@ namespace Katas
 		public Calculator Subtract(params string[] values)
 		{
 			int result = 0;
-			foreach (string v in values)
+			int[] parsedValues = parse(values);
+			foreach (int v in parsedValues)
 			{
-				result += subtractValues(v);
+				result -= v;
 			}
 			runningResult += result;
 			
@@ -86,12 +72,11 @@ namespace Katas
 		
 		public Calculator Divide(params string[] values)
 		{
-			double result = 1;
-			foreach (string v in values)
+			int[] parsedValues = parse(values);
+			foreach (int v in parsedValues)
 			{
-				result = (int) (result / divideValues(v));
+				runningResult = (int) (runningResult / v);
 			}
-			runningResult = (int) (runningResult / result);
 			
 			return this;
 		}
