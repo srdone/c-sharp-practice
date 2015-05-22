@@ -35,13 +35,11 @@ namespace Katas
 		
 		public Calculator Add(params string[] values)
 		{
-			int result = 0;
 			int[] parsedValues = parse(values);
 			foreach (int v in parsedValues)
 			{
-				result += v;
+				runningResult += v;
 			}
-			runningResult += result;
 			
 			return this;
 		}
@@ -59,13 +57,11 @@ namespace Katas
 		
 		public Calculator Subtract(params string[] values)
 		{
-			int result = 0;
 			int[] parsedValues = parse(values);
 			foreach (int v in parsedValues)
 			{
-				result -= v;
+				runningResult -= v;
 			}
-			runningResult += result;
 			
 			return this;
 		}
