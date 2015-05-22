@@ -91,11 +91,6 @@ namespace Katas
 		}
 	}
 	
-	public interface IParser
-	{
-		int[] Parse(string values);
-	}
-	
 	public class StringParser : IParser
 	{
 		const string emptyString = "";
