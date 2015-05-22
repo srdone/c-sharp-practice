@@ -11,10 +11,15 @@ namespace Katas
 			this.parser = parser;
 		}
 		
+		int[] parse(string values)
+		{
+			return parser.Parse(values);
+		}
+		
 		int addValues(string values)
 		{	
 			int result = 0;
-			foreach (int v in parser.Parse(values))
+			foreach (int v in parse(values))
 			{
 				result += v;
 			}
@@ -25,7 +30,7 @@ namespace Katas
 		int subtractValues(string values)
 		{
 			int result = 0;
-			foreach (int v in parser.Parse(values))
+			foreach (int v in parse(values))
 			{
 				result -= v;
 			}
@@ -36,7 +41,7 @@ namespace Katas
 		double divideValues(string values)
 		{
 			double result = 1;
-			foreach (int v in parser.Parse(values))
+			foreach (int v in parse(values))
 			{
 				result = (result / v);
 			}
