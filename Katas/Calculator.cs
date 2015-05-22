@@ -2,6 +2,11 @@ namespace Katas
 {
 	using System;
 	
+	enum Operation
+	{
+		Add, Subtract, Multiply, Divide
+	}
+	
 	public class Calculator
 	{
 		private int runningResult;
@@ -33,36 +38,44 @@ namespace Katas
 			return result;
 		}
 		
+		void calculate(int[] values, Operation operation)
+		{
+			foreach (int v in values)
+			{
+				switch(operation){
+					case Operation.Add:
+						runningResult += v;
+						break;
+					case Operation.Subtract:
+						runningResult -= v;
+						break;
+					case Operation.Divide:
+						runningResult = (int) (runningResult / v);
+						break;
+					default:
+						throw new Exception();
+				}
+			}
+		}
+		
 		public Calculator Add(params string[] values)
 		{
 			int[] parsedValues = parse(values);
-			foreach (int v in parsedValues)
-			{
-				runningResult += v;
-			}
-			
+			calculate(parsedValues, Operation.Add);
 			return this;
 		}
 		
 		public Calculator Subtract(params string[] values)
 		{
 			int[] parsedValues = parse(values);
-			foreach (int v in parsedValues)
-			{
-				runningResult -= v;
-			}
-			
+			calculate(parsedValues, Operation.Subtract);
 			return this;
 		}
 		
 		public Calculator Divide(params string[] values)
 		{
 			int[] parsedValues = parse(values);
-			foreach (int v in parsedValues)
-			{
-				runningResult = (int) (runningResult / v);
-			}
-			
+			calculate(parsedValues, Operation.Divide);
 			return this;
 		}
 		
